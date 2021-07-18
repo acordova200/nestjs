@@ -1,0 +1,78 @@
+version: '3.7'
+
+services:
+  app:
+    image: acordova200/app_vuelos:v2
+    container_name: app_vuelos
+    env_file: .env.example
+    ports:
+      - 80:3000
+    depends_on:
+      - mongodb
+      - rabbitmq
+    restart: always
+    networks:
+      - ms_nestjs
+
+  microservice-flights:
+    image: acordova200/microservice-flights:v2
+    container_name: microservice-flights
+    env_file: .env.example
+    depends_on:
+      - mongodb
+      - rabbitmq
+    restart: always
+    networks:
+      - ms_nestjs
+
+  microservice-passengers:
+    image: acordova200/microservice-passengers:v2
+    container_name: microservice-passengers
+    env_file: .env.example
+    depends_on:
+      - mongodb
+      - rabbitmq
+    restart: always
+    networks:
+      - ms_nestjs
+
+  microservice-users:
+    image: acordova200/microservice-users:v2
+    container_name: microservice-users
+    env_file: .env.example
+    depends_on:
+      - mongodb
+      - rabbitmq
+    restart: always
+    networks:
+      - ms_nestjs
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    expose:
+      - 5672
+      - 15672
+    restart: always
+    networks:
+      - ms_nestjs
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - mongodb:/data/db
+    expose:
+      - 27017
+    networks:
+      - ms_nestjs
+
+volumes:
+  mongodb:
+
+networks:
+  ms_nestjs:
