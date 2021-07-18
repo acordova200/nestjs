@@ -1,0 +1,676 @@
+{
+	"info": {
+		"_postman_id": "9925e59b-4c23-4052-9a0c-6d47dc689c30",
+		"name": "api-superflights",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Andres Cordova\",\r\n    \"username\": \"acordova\",\r\n    \"email\": \"acrdova@gmail.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/user",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Andres Cordova\",\r\n    \"username\": \"acordova\",\r\n    \"email\": \"acordova@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/user/60ecd60cde6343284858b403",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"user",
+								"60ecd60cde6343284858b403"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/user",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/user/60ecd60cde6343284858b403",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"user",
+								"60ecd60cde6343284858b403"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/user/60ecd5e2de6343d42258b3ff",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"user",
+								"60ecd5e2de6343d42258b3ff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "passengers",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Passenger two\",\r\n    \"email\": \"passenger.two@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/passenger",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"passenger"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/passenger",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"passenger"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/passenger/60ec5255093ce27af4948650",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"passenger",
+								"60ec5255093ce27af4948650"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/passenger/60ec5255093ce27af4948650",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"passenger",
+								"60ec5255093ce27af4948650"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Passenger Seven\",\r\n    \"email\": \"passenger.seven@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/passenger/60ec5255093ce27af4948650",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"passenger",
+								"60ec5255093ce27af4948650"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "flight",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pilot\": \"Pilot Test\",\r\n    \"airplane\": \"Airbus A344\",\r\n    \"destinationCity\": \"london\",\r\n    \"flightDate\": \"2021-02-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/flight",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"flight"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/flight",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"flight"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/flight/60ecd681dedb84783361a88c",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"flight",
+								"60ecd681dedb84783361a88c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/flight/60ec7ec76d1e8029584697ea",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"flight",
+								"60ec7ec76d1e8029584697ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pilot\": \"Pilot Four\",\r\n    \"airplane\": \"Airbus A342\",\r\n    \"destinationCity\": \"San Francisco\",\r\n    \"flightDate\": \"2021-03-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/flight/60ec7ec76d1e8029584697ea",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"flight",
+								"60ec7ec76d1e8029584697ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Passenger",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/flight/60ecd681dedb84783361a88c/passenger/60ecd6712b08eddb0df13858",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"flight",
+								"60ecd681dedb84783361a88c",
+								"passenger",
+								"60ecd6712b08eddb0df13858"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-metaweather",
+			"item": [
+				{
+					"name": "Get woeid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.metaweather.com/api/location/search/?query=San Francisco",
+							"protocol": "https",
+							"host": [
+								"www",
+								"metaweather",
+								"com"
+							],
+							"path": [
+								"api",
+								"location",
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "San Francisco"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Weather",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.metaweather.com/api/location/44418/2021/04/27",
+							"protocol": "https",
+							"host": [
+								"www",
+								"metaweather",
+								"com"
+							],
+							"path": [
+								"api",
+								"location",
+								"44418",
+								"2021",
+								"04",
+								"27"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"test3\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/auth/signin",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test\",\r\n    \"username\": \"test3\",\r\n    \"email\": \"test3@gmail.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/{{version}}/auth/signup",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
