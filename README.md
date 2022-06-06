@@ -7,10 +7,15 @@
 ### API GATEWAY
 
 ```bash
+# * la version de la API es v2 ej: http://localhost:3000/v2/auth/signup
+
+```
+
+```bash
 
 cd api-gateway
 
-npm install 
+npm install
 
 # development
 $ npm run start
@@ -28,7 +33,7 @@ $ npm run start:prod
 
 cd microservice-users
 
-npm install 
+npm install
 
 # development
 $ npm run start
@@ -46,7 +51,7 @@ $ npm run start:prod
 
 cd microservice-passengers
 
-npm install 
+npm install
 
 # development
 $ npm run start
@@ -64,7 +69,7 @@ $ npm run start:prod
 
 cd microservice-flights
 
-npm install 
+npm install
 
 # development
 $ npm run start
@@ -75,10 +80,14 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
 ## Despligue con Docker
 
 ```bash
 # development
+# * Tomar en cuenta que cada proyecto se debe haber corrido npm run build para que exista la carpeta /dist
+# * Docker se desplegara en el puerto 80
+# * la version de la API es v2 ej: http://localhost/v2/auth/signup
 docker-compose -f docker-compose.dev.yml
 
 # deploy from Docker hub

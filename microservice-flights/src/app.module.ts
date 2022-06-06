@@ -11,10 +11,7 @@ import { FlightModule } from './flight/flight.module';
       envFilePath: ['.env.development'],
       isGlobal: true,
     }),
-    MongooseModule.forRoot(process.env.URI_MONGODB, {
-      useCreateIndex: true,
-      useFindAndModify: false,
-    }),
+    MongooseModule.forRoot(process.env.URI_MONGODB),
     FlightModule,
   ],
   controllers: [AppController],
