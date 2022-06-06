@@ -14,10 +14,7 @@ import { ConfigModule } from '@nestjs/config';
       envFilePath: ['.env.development'],
       isGlobal: true,
     }),
-    MongooseModule.forRoot(process.env.URI_MONGODB, {
-      useCreateIndex: true,
-      useFindAndModify: false,
-    }),
+    MongooseModule.forRoot(process.env.URI_MONGODB),
     UserModule,
     PassengerModule,
     FlightModule,
