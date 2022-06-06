@@ -27,12 +27,12 @@ export class TaskService {
 
   update(id: string, taskDTO: TaskDTO): ITask {
     const newTask = { id, ...taskDTO };
-    this.tasks = this.tasks.map(t => t.id === id ? newTask : t);
+    this.tasks = this.tasks.map((t) => (t.id === id ? newTask : t));
     return newTask;
   }
 
   delete(id: string): string {
-    this.tasks = this.tasks.filter(t => t.id !== id)
+    this.tasks = this.tasks.filter((t) => t.id !== id);
     return 'Task deleted';
   }
 }
