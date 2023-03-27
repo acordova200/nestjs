@@ -88,8 +88,8 @@ $ npm run start:prod
 # * Tomar en cuenta que cada proyecto se debe haber corrido npm run build para que exista la carpeta /dist
 # * Docker se desplegara en el puerto 80
 # * la version de la API es v2 ej: http://localhost/v2/auth/signup
-docker-compose -f docker-compose.dev.yml
+docker-compose -f docker-compose.dev.yml up --build -d
 
 # deploy from Docker hub
-docker-compose -f docker-compose.prod.yml
+docker-compose -f docker-compose.prod.yml up --build -d
 ```
