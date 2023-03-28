@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import {
   ClientProxy,
   ClientProxyFactory,
-  Transport,
+  Transport
 } from '@nestjs/microservices';
 import { RabbitMQ } from '../constants';
 

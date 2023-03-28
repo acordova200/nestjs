@@ -1,10 +1,10 @@
-import { UserDTO } from './dto/user.dto';
 import { HttpStatus, Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
 import { Model } from 'mongoose';
-import { InjectModel } from '@nestjs/mongoose';
-import { USER } from 'src/common/models/models';
 import { IUser } from 'src/common/interfaces/user.interface';
+import { USER } from 'src/common/models/models';
+import { UserDTO } from './dto/user.dto';
 
 @Injectable()
 export class UserService {
@@ -33,7 +33,18 @@ export class UserService {
     return await this.model.find();
   }
 
-  async findOne(id: string): Promise<IUser> {
+  async findOne(id: string): Promise<IUser | unknown> {
+    const user = await this.model.findById(id);
+    if (!user) {
+      console.log({
+        status: HttpStatus.NOT_FOUND,
+      });
+      return {
+        status: HttpStatus.NOT_FOUND,
+        msg: 'User not found',
+      };
+    }
+
     return await this.model.findById(id);
   }
 
