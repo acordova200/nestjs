@@ -1,12 +1,17 @@
-import { UserService } from './user.service';
-import { UserDTO } from './dto/user.dto';
-import { Controller } from '@nestjs/common';
-import { MessagePattern, Payload } from '@nestjs/microservices';
+import { Controller, Inject } from '@nestjs/common';
+import { ClientProxy, MessagePattern, Payload } from '@nestjs/microservices';
+import { lastValueFrom } from 'rxjs';
 import { UserMsg } from 'src/common/constants';
+import { UserDTO } from './dto/user.dto';
+import { UserService } from './user.service';
 
 @Controller()
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    @Inject('RABBIT_MQ_CONNECTION')
+    private readonly client: ClientProxy,
+  ) {}
 
   @MessagePattern(UserMsg.CREATE)
   create(@Payload() userDTO: UserDTO) {
@@ -44,5 +49,13 @@ export class UserController {
     if (user && isValidPassword) return user;
 
     return null;
+  }
+
+  @MessagePattern('GET_PASSENGER_FROM_USER')
+  async getPassengerFromUser(@Payload() payload) {
+    console.log('procesando mensaje: GET_PASSENGER_FROM_USER', {
+      payload,
+    });
+    return lastValueFrom(this.client.send('GET_PASSENGER_FROM_USER', payload));
   }
 }

@@ -1,8 +1,8 @@
-import { PassengerMSG } from './../common/constants';
-import { MessagePattern, Payload } from '@nestjs/microservices';
 import { Body, Controller } from '@nestjs/common';
-import { PassengerService } from './passenger.service';
+import { MessagePattern, Payload } from '@nestjs/microservices';
+import { PassengerMSG } from './../common/constants';
 import { PassengerDTO } from './dto/passenger.dto';
+import { PassengerService } from './passenger.service';
 
 @Controller()
 export class PassengerController {
@@ -31,5 +31,16 @@ export class PassengerController {
   @MessagePattern(PassengerMSG.DELETE)
   delete(@Payload() id: string) {
     return this.passengerService.delete(id);
+  }
+
+  @MessagePattern('GET_PASSENGER_FROM_USER')
+  getPassengerFromUser(@Payload() payload) {
+    console.log({
+      payload,
+    });
+    return {
+      payload,
+      test: 'this was a communication between microservices',
+    };
   }
 }

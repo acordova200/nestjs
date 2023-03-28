@@ -1,4 +1,3 @@
-import { ApiTags } from '@nestjs/swagger';
 import {
   Body,
   Controller,
@@ -7,14 +6,15 @@ import {
   Param,
   Post,
   Put,
-  UseGuards,
+  UseGuards
 } from '@nestjs/common';
-import { UserMSG } from './../common/constants';
+import { ApiTags } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
-import { UserDTO } from './dto/user.dto';
-import { ClientProxySuperFlights } from './../common/proxy/client-proxy';
-import { IUser } from 'src/common/interfaces/user.interface';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { IUser } from 'src/common/interfaces/user.interface';
+import { UserMSG } from './../common/constants';
+import { ClientProxySuperFlights } from './../common/proxy/client-proxy';
+import { UserDTO } from './dto/user.dto';
 
 @ApiTags('users')
 @UseGuards(JwtAuthGuard)
@@ -46,5 +46,13 @@ export class UserController {
   @Delete(':id')
   delete(@Param('id') id: string): Observable<any> {
     return this._clientProxyUser.send(UserMSG.DELETE, id);
+  }
+
+  @Get('passenger/user-test')
+  getPassengerFromUser(): Observable<any> {
+    return this._clientProxyUser.send('GET_PASSENGER_FROM_USER', {
+      id: '5f9f1b9b9c9d1c1b8c8c0c0c',
+      name: 'test',
+    });
   }
 }

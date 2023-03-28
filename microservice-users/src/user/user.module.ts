@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
-import { UserService } from './user.service';
-import { UserSchema } from './schema/user.schema';
-import { USER } from 'src/common/models/models';
 import { MongooseModule } from '@nestjs/mongoose';
+import { USER } from 'src/common/models/models';
+import { RabbitMQModule } from 'src/RabbitMQ.module';
+import { UserSchema } from './schema/user.schema';
 import { UserController } from './user.controller';
+import { UserService } from './user.service';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { UserController } from './user.controller';
         useFactory: () => UserSchema,
       },
     ]),
+    RabbitMQModule,
   ],
   controllers: [UserController],
   providers: [UserService],
