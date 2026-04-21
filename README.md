@@ -2,95 +2,102 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
-## Despligue con Docker
+## Despliegue con Docker
 
 ```bash
 # development
-# * Docker se desplegara en el puerto 80 (Si este puerto esta ocupado en la maquina local se debe cambiar en el archivo docker-compose.dev.yml)
-# * la version de la API es v2 ej: http://localhost/v2/auth/signup
+# * Docker se desplegara en el puerto 80 (si este puerto esta ocupado en la maquina local se debe cambiar en docker-compose.dev.yml)
+# * la version de la API es v2, ejemplo: http://localhost/v2/auth/signup
 docker-compose -f docker-compose.dev.yml up --build -d
 
 # deploy from Docker hub
 docker-compose -f docker-compose.prod.yml up --build -d
 ```
 
+## Scripts rapidos (pnpm)
 
-## Correr Aplicacion
+Desde la raiz del proyecto:
+
+```bash
+chmod +x run-all.sh install-all.sh
+
+# instala dependencias en los 4 proyectos
+./install-all.sh
+
+# levanta API Gateway + microservicios en modo watch
+./run-all.sh
+
+# actualiza dependencias (si lo necesitas)
+./update.sh
+```
+
+## Correr aplicacion manualmente
 
 ### API GATEWAY
 
 ```bash
-# * la version de la API es v2 ej: http://localhost:3000/v2/auth/signup
-
-```
-
-```bash
-
 cd api-gateway
 
-npm install
+pnpm install
 
 # development
-$ npm run start
+pnpm run start
 
 # watch mode
-$ npm run start:dev
+pnpm run start:dev
 
 # production mode
-$ npm run start:prod
+pnpm run start:prod
 ```
 
 ### Microservicio Usuarios
 
 ```bash
-
 cd microservice-users
 
-npm install
+pnpm install
 
 # development
-$ npm run start
+pnpm run start
 
 # watch mode
-$ npm run start:dev
+pnpm run start:dev
 
 # production mode
-$ npm run start:prod
+pnpm run start:prod
 ```
 
 ### Microservicio Pasajeros
 
 ```bash
-
 cd microservice-passengers
 
-npm install
+pnpm install
 
 # development
-$ npm run start
+pnpm run start
 
 # watch mode
-$ npm run start:dev
+pnpm run start:dev
 
 # production mode
-$ npm run start:prod
+pnpm run start:prod
 ```
 
 ### Microservicio Vuelos
 
 ```bash
-
 cd microservice-flights
 
-npm install
+pnpm install
 
 # development
-$ npm run start
+pnpm run start
 
 # watch mode
-$ npm run start:dev
+pnpm run start:dev
 
 # production mode
-$ npm run start:prod
+pnpm run start:prod
 ```
 
