@@ -1,4 +1,4 @@
-import { IPassenger } from 'src/common/interfaces/passenger.interface';
+import { IPassenger } from './passenger.interface';
 import { IWeather } from './weather.interface';
 export interface IFlight extends Document {
   _id?: string;
